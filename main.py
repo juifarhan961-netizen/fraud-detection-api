@@ -2,14 +2,16 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
 import joblib
+import os
 from huggingface_hub import hf_hub_download
 
 app = FastAPI(title="Fraud Detection API")
 
-# Download model from Hugging Face
+# Download model from private Hugging Face repository
 model_path = hf_hub_download(
     repo_id="juifarhan961/fraud-detection-random-forest",
-    filename="random_forest_fraud_model.pkl"
+    filename="random_forest_fraud_model.pkl",
+    token=os.getenv("HF_TOKEN")
 )
 
 # Load model
