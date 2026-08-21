@@ -1,8 +1,5 @@
-fastapi
+fastapi[standard]
 uvicorn
 pandas
 scikit-learn
-imbalanced-learn
 joblib
-pydantic
-huggingface_hub
